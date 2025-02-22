@@ -1,0 +1,19 @@
+{
+   "BOT_website": "https://www.bot.or.th/en/statistics/exchange-rate.html",
+   "Output_folder":"Output",
+   "Result_filename":"Exchage_Rate.xlsx",
+   "ExceptionFolder":"ExceptionScreenShots",
+   "Period":"Dec-2024",
+   "ShortDelay":5,
+   "MediumDelay":30,
+   "LongDelay":300,
+   "ListCurrency":"USD,GBP,SGD,JPY,EUR",
+   "Template_Email":"Template\\Email",
+   "Email_Success_Body":"Email_Success.txt",
+   "Email_Success_Subject": "Process Exchange Rate Monthly Period Success",
+   "Email_Fail_Body":"Email_Fail.txt",
+   "Email_Fail_Subject": "Process Exchange Rate Monthly Period Failed",
+   "Email_To":"pop@oventure-group.com",
+   "Email_CC":"kittipong.kit@outlook.com",
+   "Test_Env":"Test"
+}

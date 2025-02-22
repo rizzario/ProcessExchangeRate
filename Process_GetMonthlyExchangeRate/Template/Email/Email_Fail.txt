@@ -1,0 +1,39 @@
+<html xmlns:v='urn:schemas-microsoft-com:vml'xmlns:o='urn:schemas-microsoft-com:office:office'xmlns:w='urn:schemas-microsoft-com:office:word'xmlns:m='http://schemas.microsoft.com/office/2004/12/omml'xmlns='http://www.w3.org/TR/REC-html40'>
+	<head>
+		<meta http-equiv=Content-Type content='text/html; charset=unicode'>
+		<title>Success Reassign </title>
+		<style>
+			.italic
+			{ font-style:italic;color:Orange;font-family:Calibri;font-size:14pt}
+			.normal
+			{ font-style:normal;color:Dark;font-family:Helvetica;font-size:11.5pt}
+			body
+			{ margin-left: 25px; 
+			  margin-top:  25px;}
+		    a:link {
+				text-decoration: none;
+			}
+			a:visited {
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+       <div style='font-family: Cordia New; margin-left: 25px;'>
+          <div style ='font-size: 36pt; font-weight: bold;'>
+              <font color='red'>[Robot-Head]</font>
+          </div>
+          <div style ='font-size: 20pt; font-weight: bold;'>
+              <font color='black'>[Process]</font>
+          </div>
+      </div>
+      <br/>
+      <br/>
+      <div class='italic'><b>Robotic Process Automation (RPA)</b></div>
+      <div class='normal'><b><font color='lime'>Robot from Programmer</font></b></div>
+      <div class='normal'><b><font color='magenta'>Phone :</font> (+66)83-427-9720</b></div>
+      <div class='normal'><b><font color='magenta'>E-mail : </font></b>
+      <a href='mailto:kittipong.kit@outlook.com?Subject=Contact Problem' target='_top'>kittipong.kit@outlook.com</a></div>
+  <br/>
+  </body>
+</html>
