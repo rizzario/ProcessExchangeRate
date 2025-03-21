@@ -139,7 +139,7 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Send email" sap:VirtualizedContainerService.HintSize="1263,3308" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Send email" sap:VirtualizedContainerService.HintSize="847.2,3311.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="mailSubject" />
       <Variable x:TypeArguments="x:String" Name="mailTo" />
@@ -152,16 +152,16 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[in_SystemException is Nothing AndAlso in_Config isnot Nothing]" DisplayName="If : Process success with no error" sap:VirtualizedContainerService.HintSize="574,1490" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[in_SystemException is Nothing AndAlso in_Config isnot Nothing]" DisplayName="If : Process success with no error" sap:VirtualizedContainerService.HintSize="573.6,1488.8" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence DisplayName="Then  : Success Information" sap:VirtualizedContainerService.HintSize="468,733" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Then  : Success Information" sap:VirtualizedContainerService.HintSize="467.2,732" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ReadTextFile File="{x:Null}" Content="[mailBody]" DisplayName="Read Text File : Success" FileName="[Directory.GetFiles(in_Config(&quot;Template_Email&quot;).ToString, in_Config(&quot;Email_Success_Body&quot;).ToString).First]" sap:VirtualizedContainerService.HintSize="434,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-          <Assign DisplayName="Set subject" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <ui:ReadTextFile File="{x:Null}" Content="[mailBody]" DisplayName="Read Text File : Success" FileName="[Directory.GetFiles(in_Config(&quot;Template_Email&quot;).ToString, in_Config(&quot;Email_Success_Body&quot;).ToString).First]" sap:VirtualizedContainerService.HintSize="433.6,112.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+          <Assign DisplayName="Set subject" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[mailSubject]</OutArgument>
             </Assign.To>
@@ -169,7 +169,7 @@
               <InArgument x:TypeArguments="x:String">[in_Config("Email_Success_Subject").ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Set recipient" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign DisplayName="Set recipient" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[mailTo]</OutArgument>
             </Assign.To>
@@ -177,7 +177,7 @@
               <InArgument x:TypeArguments="x:String">[in_Config("Email_To").ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Set carbon copy" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <Assign DisplayName="Set carbon copy" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[mailCC]</OutArgument>
             </Assign.To>
@@ -185,7 +185,7 @@
               <InArgument x:TypeArguments="x:String">[in_Config("Email_CC").ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Set mailAttachment" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign DisplayName="Set mailAttachment" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_7">
             <Assign.To>
               <OutArgument x:TypeArguments="s:String[]">[mailAttachment]</OutArgument>
             </Assign.To>
@@ -193,7 +193,7 @@
               <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_Config("Output_folder").ToString,"*.xls*").ToArray]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Modified Body" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_20">
+          <Assign DisplayName="Modified Body" sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_20">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[mailBody]</OutArgument>
             </Assign.To>
@@ -204,15 +204,15 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else : Error Information" sap:VirtualizedContainerService.HintSize="468,619" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Else : Error Information" sap:VirtualizedContainerService.HintSize="467.2,618.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ReadTextFile File="{x:Null}" Content="[mailBody]" DisplayName="Read Text File : Fail" FileName="[Directory.GetFiles(in_Config(&quot;Template_Email&quot;).ToString, in_Config(&quot;Email_Fail_Body&quot;).ToString).First]" sap:VirtualizedContainerService.HintSize="434,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
-          <Assign DisplayName="Set subject" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_16">
+          <ui:ReadTextFile File="{x:Null}" Content="[mailBody]" DisplayName="Read Text File : Fail" FileName="[Directory.GetFiles(in_Config(&quot;Template_Email&quot;).ToString, in_Config(&quot;Email_Fail_Body&quot;).ToString).First]" sap:VirtualizedContainerService.HintSize="433.6,112.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+          <Assign DisplayName="Set subject" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_16">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[mailSubject]</OutArgument>
             </Assign.To>
@@ -220,7 +220,7 @@
               <InArgument x:TypeArguments="x:String">[in_Config("Email_Fail_Subject").ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Set recipient" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_17">
+          <Assign DisplayName="Set recipient" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_17">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[mailTo]</OutArgument>
             </Assign.To>
@@ -228,7 +228,7 @@
               <InArgument x:TypeArguments="x:String">[in_Config("Email_To").ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Set carbon copy" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_18">
+          <Assign DisplayName="Set carbon copy" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_18">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[mailCC]</OutArgument>
             </Assign.To>
@@ -236,7 +236,7 @@
               <InArgument x:TypeArguments="x:String">[in_Config("Email_CC").ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Set mailAttachment" sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_19">
+          <Assign DisplayName="Set mailAttachment" sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_19">
             <Assign.To>
               <OutArgument x:TypeArguments="s:String[]">[mailAttachment]</OutArgument>
             </Assign.To>
@@ -247,7 +247,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <TryCatch DisplayName="Try Catch : Break Send email" sap:VirtualizedContainerService.HintSize="574,1795" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Try Catch : Break Send email" sap:VirtualizedContainerService.HintSize="573.6,1799.2" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -255,7 +255,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" AttachmentsCollection="[mailAttachment]" Body="[mailBody]" Cc="[mailCC]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="572,146" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[mailSubject]" To="[mailTo]">
+        <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" AttachmentsCollection="[mailAttachment]" Body="[mailBody]" Cc="[mailCC]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="572,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[mailSubject]" To="[mailTo]">
           <ui:SendOutlookMail.Files>
             <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
           </ui:SendOutlookMail.Files>
@@ -273,7 +273,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="No Outlook in Computer Handle" sap:VirtualizedContainerService.HintSize="572,1238" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="No Outlook in Computer Handle" sap:VirtualizedContainerService.HintSize="572,1241.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="mailUser" />
                 <Variable x:TypeArguments="ss:SecureString" Name="mailPassword" />
@@ -283,28 +283,28 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[in_Config(&quot;Test_Env&quot;).ToString.Equals(&quot;Test&quot;)]" DisplayName="If : Test Environment" sap:VirtualizedContainerService.HintSize="538,1178" sap2010:WorkflowViewState.IdRef="If_3">
+              <If Condition="[in_Config(&quot;Test_Env&quot;).ToString.Equals(&quot;Test&quot;)]" DisplayName="If : Test Environment" sap:VirtualizedContainerService.HintSize="538.4,1181.6" sap2010:WorkflowViewState.IdRef="If_3">
                 <If.Then>
-                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,744" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="534.4,747.2" sap2010:WorkflowViewState.IdRef="Sequence_16">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <umab:GmailApplicationCard ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Account="kittipong.ktrcr@gmail.com" DisplayName="Use Gmail" EmailAddress="kittipong.ktrcr@gmail.com" sap:VirtualizedContainerService.HintSize="502,684" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_1" Timeout="90" UseConnectionService="False">
+                    <umab:GmailApplicationCard ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Account="kittipong.ktrcr@gmail.com" DisplayName="Use Gmail" EmailAddress="kittipong.ktrcr@gmail.com" sap:VirtualizedContainerService.HintSize="500.8,687.2" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_1" Timeout="90" UseConnectionService="False">
                       <umab:GmailApplicationCard.Body>
                         <ActivityAction x:TypeArguments="um:IMailQuickHandle">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Gmail" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Process SendMail" sap:VirtualizedContainerService.HintSize="468,479" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                          <Sequence DisplayName="Process SendMail" sap:VirtualizedContainerService.HintSize="467.2,480.8" sap2010:WorkflowViewState.IdRef="Sequence_20">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <umab:SendMailX Bcc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[mailBody]" Cc="[mailCC]" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,419" sap2010:WorkflowViewState.IdRef="SendMailX_5" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="[mailSubject]" To="[mailTo]" UseDocumentAsBody="False">
+                            <umab:SendMailX Bcc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[mailBody]" Cc="[mailCC]" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="433.6,420.8" sap2010:WorkflowViewState.IdRef="SendMailX_5" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="[mailSubject]" To="[mailTo]" UseDocumentAsBody="False">
                               <umab:SendMailX.Files>
                                 <scg:List x:TypeArguments="InArgument(x:String)" Capacity="1">
                                   <InArgument x:TypeArguments="x:String">[mailAttachment.First]</InArgument>
@@ -340,13 +340,13 @@
                   </Sequence>
                 </If.Then>
                 <If.Else>
-                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="536,305" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="534.4,304.8" sap2010:WorkflowViewState.IdRef="Sequence_17">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ufa:ShowFormActivity Height="{x:Null}" InstanceName="{x:Null}" Left="{x:Null}" ShowInTaskbar="{x:Null}" ShowMargin="{x:Null}" Title="{x:Null}" Top="{x:Null}" TopMost="{x:Null}" Width="{x:Null}" WindowState="{x:Null}" DisplayName="Show Form" FormId="245d07f2-63f0-4e2e-b0a0-a085d3e38d1d" sap:VirtualizedContainerService.HintSize="502,57" sap2010:WorkflowViewState.IdRef="ShowFormActivity_2" IsAsync="False">
+                    <ufa:ShowFormActivity Height="{x:Null}" InstanceName="{x:Null}" Left="{x:Null}" ShowInTaskbar="{x:Null}" ShowMargin="{x:Null}" Title="{x:Null}" Top="{x:Null}" TopMost="{x:Null}" Width="{x:Null}" WindowState="{x:Null}" DisplayName="Show Form" FormId="245d07f2-63f0-4e2e-b0a0-a085d3e38d1d" sap:VirtualizedContainerService.HintSize="500.8,56.8" sap2010:WorkflowViewState.IdRef="ShowFormActivity_2" IsAsync="False">
                       <ufa:ShowFormActivity.Arguments>
                         <OutArgument x:TypeArguments="x:String" x:Key="email">[mailUser]</OutArgument>
                         <OutArgument x:TypeArguments="ss:SecureString" x:Key="password">[mailPassword]</OutArgument>
@@ -358,7 +358,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ufa:ShowFormActivity>
-                    <ui:InvokeCode ContinueOnError="{x:Null}" Code=" try&#xA;{&#xA;&#x9;// SMTP Client Configuration&#xA;   System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient(&quot;smtp.office365.com&quot;, 587);&#xA;   client.Credentials = new System.Net.NetworkCredential(in_User, in_Password);&#xA;   client.EnableSsl = true;&#xA;&#xA;            // Create Email Message&#xA;            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage&#xA;            {&#xA;                From = new MailAddress(in_User),&#xA;                Subject = in_Subject,&#xA;                Body = in_MailBody,&#xA;                IsBodyHtml = true&#xA;            };&#xA;&#x9;&#x9;&#x9; mail.To.Add(in_User);&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;foreach(string filePath in in_filePaths){&#xA;&#x9;&#x9;&#x9;&#x9;mail.Attachments.Add(new Attachment(filePath));&#xA;&#x9;&#x9;&#x9;}&#xA;&#xA;            // Send Email&#xA;            client.Send(mail);&#xA;            Console.WriteLine(&quot;Email sent successfully!&quot;);&#xA;}&#xA;catch (Exception ex)&#xA;{&#xA;            Console.WriteLine($&quot;Error: {ex.Message}&quot;);&#xA;}" DisplayName="Invoke Code : Send Email" sap:VirtualizedContainerService.HintSize="502,188" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+                    <ui:InvokeCode ContinueOnError="{x:Null}" Code=" try&#xA;{&#xA;&#x9;// SMTP Client Configuration&#xA;   System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient(&quot;smtp.office365.com&quot;, 587);&#xA;   client.Credentials = new System.Net.NetworkCredential(in_User, in_Password);&#xA;   client.EnableSsl = true;&#xA;&#xA;            // Create Email Message&#xA;            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage&#xA;            {&#xA;                From = new MailAddress(in_User),&#xA;                Subject = in_Subject,&#xA;                Body = in_MailBody,&#xA;                IsBodyHtml = true&#xA;            };&#xA;&#x9;&#x9;&#x9; mail.To.Add(in_User);&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;foreach(string filePath in in_filePaths){&#xA;&#x9;&#x9;&#x9;&#x9;mail.Attachments.Add(new Attachment(filePath));&#xA;&#x9;&#x9;&#x9;}&#xA;&#xA;            // Send Email&#xA;            client.Send(mail);&#xA;            Console.WriteLine(&quot;Email sent successfully!&quot;);&#xA;}&#xA;catch (Exception ex)&#xA;{&#xA;            Console.WriteLine($&quot;Error: {ex.Message}&quot;);&#xA;}" DisplayName="Invoke Code : Send Email" sap:VirtualizedContainerService.HintSize="500.8,188" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
                       <ui:InvokeCode.Arguments>
                         <InArgument x:TypeArguments="x:String" x:Key="in_User">[mailUser]</InArgument>
                         <InArgument x:TypeArguments="ss:SecureString" x:Key="in_Password">[mailPassword]</InArgument>
