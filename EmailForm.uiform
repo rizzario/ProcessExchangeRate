@@ -1,0 +1,46 @@
+﻿{
+  "Metadata": {
+    "Id": "245d07f2-63f0-4e2e-b0a0-a085d3e38d1d",
+    "Kind": "FormIo"
+  },
+  "DesignProperties": {
+    "Title": "EmailForm",
+    "Theme": "Cosmo",
+    "ShowInTaskbar": true,
+    "ShowMargin": true,
+    "CustomStyle": ""
+  },
+  "Data": {
+    "components": [
+      {
+        "label": "Email",
+        "tableView": true,
+        "validate": {
+          "required": true
+        },
+        "key": "email",
+        "type": "email",
+        "input": true
+      },
+      {
+        "label": "Password",
+        "tableView": false,
+        "validate": {
+          "required": true
+        },
+        "key": "password",
+        "type": "password",
+        "input": true,
+        "protected": true
+      },
+      {
+        "type": "button",
+        "label": "Submit",
+        "key": "submit",
+        "disableOnInvalid": true,
+        "input": true,
+        "tableView": false
+      }
+    ]
+  }
+}
