@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SendMail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SendMail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
@@ -139,7 +139,7 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Send email" sap:VirtualizedContainerService.HintSize="1184,3872" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Send email" sap:VirtualizedContainerService.HintSize="1184,3375" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="mailSubject" />
       <Variable x:TypeArguments="x:String" Name="mailTo" />
@@ -152,7 +152,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[in_SystemException is Nothing AndAlso in_Config isnot Nothing]" DisplayName="If : Process success with no error" sap:VirtualizedContainerService.HintSize="574,2042" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[in_SystemException is Nothing AndAlso in_Config isnot Nothing]" DisplayName="If : Process success with no error" sap:VirtualizedContainerService.HintSize="488,2042" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence DisplayName="Then  : Success Information" sap:VirtualizedContainerService.HintSize="450,1039" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
@@ -247,7 +247,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <TryCatch DisplayName="Try Catch : Break Send email" sap:VirtualizedContainerService.HintSize="574,1807" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Try Catch : Break Send email" sap:VirtualizedContainerService.HintSize="488,1310" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -255,7 +255,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" AttachmentsCollection="[mailAttachment]" Body="[mailBody]" Cc="[mailCC]" DisplayName="Send Outlook Mail Message : Success" sap:VirtualizedContainerService.HintSize="572,148" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[mailSubject]" To="[mailTo]">
+        <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" AttachmentsCollection="[mailAttachment]" Body="[mailBody]" Cc="[mailCC]" DisplayName="Send Outlook Mail Message : Success" sap:VirtualizedContainerService.HintSize="486,148" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[mailSubject]" To="[mailTo]">
           <ui:SendOutlookMail.Files>
             <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
           </ui:SendOutlookMail.Files>
@@ -273,17 +273,13 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="No Outlook in Computer Handle" sap:VirtualizedContainerService.HintSize="572,1246" sap2010:WorkflowViewState.IdRef="Sequence_6">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="x:String" Name="mailUser" />
-                <Variable x:TypeArguments="ss:SecureString" Name="mailPassword" />
-              </Sequence.Variables>
+            <Sequence DisplayName="No Outlook in Computer Handle" sap:VirtualizedContainerService.HintSize="486,749" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[in_Config(&quot;Test_Env&quot;).ToString.Equals(&quot;Test&quot;)]" DisplayName="If : Test Environment" sap:VirtualizedContainerService.HintSize="538,1186" sap2010:WorkflowViewState.IdRef="If_3">
+              <If Condition="[Not in_Config(&quot;Test_Env&quot;).ToString.Equals(&quot;Test&quot;)]" DisplayName="If : Not test environment" sap:VirtualizedContainerService.HintSize="452,689" sap2010:WorkflowViewState.IdRef="If_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -291,80 +287,29 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,751" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,469" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="mailUser" />
+                      <Variable x:TypeArguments="ss:SecureString" Name="mailPassword" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <umab:GmailApplicationCard ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Account="kittipong.ktrcr@gmail.com" DisplayName="Use Gmail : Test" EmailAddress="kittipong.ktrcr@gmail.com" sap:VirtualizedContainerService.HintSize="502,691" sap2010:WorkflowViewState.IdRef="GmailApplicationCard_1" Timeout="90" UseConnectionService="False">
-                      <umab:GmailApplicationCard.Body>
-                        <ActivityAction x:TypeArguments="um:IMailQuickHandle">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Gmail" />
-                          </ActivityAction.Argument>
-                          <Sequence DisplayName="Process SendMail" sap:VirtualizedContainerService.HintSize="468,483" sap2010:WorkflowViewState.IdRef="Sequence_20">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <umab:SendMailX Bcc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[mailBody]" Cc="[mailCC]" DisplayName="Send Email : Gmail" sap:VirtualizedContainerService.HintSize="434,423" sap2010:WorkflowViewState.IdRef="SendMailX_5" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="[mailSubject]" To="[mailTo]" UseDocumentAsBody="False">
-                              <umab:SendMailX.Files>
-                                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="1">
-                                  <InArgument x:TypeArguments="x:String">[mailAttachment.First]</InArgument>
-                                </scg:List>
-                              </umab:SendMailX.Files>
-                              <umab:SendMailX.HtmlBodyFromFile>
-                                <umabh:HtmlContentArgument HtmlBody="{x:Null}" FilePath=".data/HtmlContent1.html">
-                                  <umabh:HtmlContentArgument.RuntimeImages>
-                                    <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-                                  </umabh:HtmlContentArgument.RuntimeImages>
-                                  <umabh:HtmlContentArgument.ValueMappings>
-                                    <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="4">
-                                      <umabh:HtmlTextValueMapping Name="Value" Value="[mailBody]" />
-                                    </scg:List>
-                                  </umabh:HtmlContentArgument.ValueMappings>
-                                </umabh:HtmlContentArgument>
-                              </umab:SendMailX.HtmlBodyFromFile>
-                            </umab:SendMailX>
-                          </Sequence>
-                        </ActivityAction>
-                      </umab:GmailApplicationCard.Body>
-                      <umab:GmailApplicationCard.ClientId>
-                        <InArgument x:TypeArguments="x:String">
-                          <Literal x:TypeArguments="x:String" Value="" />
-                        </InArgument>
-                      </umab:GmailApplicationCard.ClientId>
-                      <umab:GmailApplicationCard.ClientSecret>
-                        <InArgument x:TypeArguments="x:String">
-                          <Literal x:TypeArguments="x:String" Value="" />
-                        </InArgument>
-                      </umab:GmailApplicationCard.ClientSecret>
-                    </umab:GmailApplicationCard>
-                  </Sequence>
-                </If.Then>
-                <If.Else>
-                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="534.4,304.8" sap2010:WorkflowViewState.IdRef="Sequence_17">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ufa:ShowFormActivity Height="{x:Null}" InstanceName="{x:Null}" Left="{x:Null}" ShowInTaskbar="{x:Null}" ShowMargin="{x:Null}" Title="{x:Null}" Top="{x:Null}" TopMost="{x:Null}" Width="{x:Null}" WindowState="{x:Null}" DisplayName="Show Form" FormId="245d07f2-63f0-4e2e-b0a0-a085d3e38d1d" sap:VirtualizedContainerService.HintSize="502,57" sap2010:WorkflowViewState.IdRef="ShowFormActivity_2" IsAsync="False">
+                    <ufa:ShowFormActivity Height="{x:Null}" InstanceName="{x:Null}" Left="{x:Null}" ShowInTaskbar="{x:Null}" ShowMargin="{x:Null}" Title="{x:Null}" Top="{x:Null}" TopMost="{x:Null}" Width="{x:Null}" WindowState="{x:Null}" DisplayName="Show Form : Email input" FormId="245d07f2-63f0-4e2e-b0a0-a085d3e38d1d" sap:VirtualizedContainerService.HintSize="416,221" sap2010:WorkflowViewState.IdRef="ShowFormActivity_2" IsAsync="False">
                       <ufa:ShowFormActivity.Arguments>
                         <OutArgument x:TypeArguments="x:String" x:Key="email">[mailUser]</OutArgument>
                         <OutArgument x:TypeArguments="ss:SecureString" x:Key="password">[mailPassword]</OutArgument>
                       </ufa:ShowFormActivity.Arguments>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ufa:ShowFormActivity>
-                    <ui:InvokeCode ContinueOnError="{x:Null}" Code=" try&#xA;{&#xA;&#x9;// SMTP Client Configuration&#xA;   System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient(&quot;smtp.office365.com&quot;, 587);&#xA;   client.Credentials = new System.Net.NetworkCredential(in_User, in_Password);&#xA;   client.EnableSsl = true;&#xA;&#xA;            // Create Email Message&#xA;            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage&#xA;            {&#xA;                From = new MailAddress(in_User),&#xA;                Subject = in_Subject,&#xA;                Body = in_MailBody,&#xA;                IsBodyHtml = true&#xA;            };&#xA;&#x9;&#x9;&#x9; mail.To.Add(in_User);&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;foreach(string filePath in in_filePaths){&#xA;&#x9;&#x9;&#x9;&#x9;mail.Attachments.Add(new Attachment(filePath));&#xA;&#x9;&#x9;&#x9;}&#xA;&#xA;            // Send Email&#xA;            client.Send(mail);&#xA;            Console.WriteLine(&quot;Email sent successfully!&quot;);&#xA;}&#xA;catch (Exception ex)&#xA;{&#xA;            Console.WriteLine($&quot;Error: {ex.Message}&quot;);&#xA;}" DisplayName="Invoke Code : Send Email" sap:VirtualizedContainerService.HintSize="502,188" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+                    <ui:InvokeCode ContinueOnError="{x:Null}" Code=" try&#xA;{&#xA;&#x9;// SMTP Client Configuration&#xA;   System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient(&quot;smtp.office365.com&quot;, 587);&#xA;   client.Credentials = new System.Net.NetworkCredential(in_User, in_Password);&#xA;   client.EnableSsl = true;&#xA;&#xA;            // Create Email Message&#xA;            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage&#xA;            {&#xA;                From = new MailAddress(in_User),&#xA;                Subject = in_Subject,&#xA;                Body = in_MailBody,&#xA;                IsBodyHtml = true&#xA;            };&#xA;&#x9;&#x9;&#x9; mail.To.Add(in_User);&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;foreach(string filePath in in_filePaths){&#xA;&#x9;&#x9;&#x9;&#x9;mail.Attachments.Add(new Attachment(filePath));&#xA;&#x9;&#x9;&#x9;}&#xA;&#xA;            // Send Email&#xA;            client.Send(mail);&#xA;            Console.WriteLine(&quot;Email sent successfully!&quot;);&#xA;}&#xA;catch (Exception ex)&#xA;{&#xA;            Console.WriteLine($&quot;Error: {ex.Message}&quot;);&#xA;}" DisplayName="Invoke Code : Send Email" sap:VirtualizedContainerService.HintSize="416,188" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
                       <ui:InvokeCode.Arguments>
                         <InArgument x:TypeArguments="x:String" x:Key="in_User">[mailUser]</InArgument>
                         <InArgument x:TypeArguments="ss:SecureString" x:Key="in_Password">[mailPassword]</InArgument>
@@ -372,7 +317,22 @@
                         <InArgument x:TypeArguments="s:String[]" x:Key="in_filePaths">[mailAttachment]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_Subject">[mailSubject]</InArgument>
                       </ui:InvokeCode.Arguments>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </ui:InvokeCode>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                   </Sequence>
                 </If.Else>
               </If>
@@ -381,13 +341,13 @@
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="572,226" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="486,226" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message : Completed" sap:VirtualizedContainerService.HintSize="538,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Process Completed&quot;]">
+          <ui:LogMessage DisplayName="Log Message : Completed" sap:VirtualizedContainerService.HintSize="452,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Process Completed&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>

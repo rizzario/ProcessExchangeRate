@@ -52,6 +52,7 @@
       <x:String>System.Globalization</x:String>
       <x:String>System.Text.RegularExpressions</x:String>
       <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -124,7 +125,7 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="MainProgram" sap:VirtualizedContainerService.HintSize="1190,524" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="MainProgram" sap:VirtualizedContainerService.HintSize="1190,661" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="s:Exception" Name="SystemException" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
@@ -331,26 +332,23 @@
                       <av:PointCollection x:Key="ConnectorLocation">640,555 640,600</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="BOT Website Process" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                  <Sequence DisplayName="BOT Website Process" sap:VirtualizedContainerService.HintSize="1058,5710" sap2010:WorkflowViewState.IdRef="Sequence_40">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <TryCatch DisplayName="Try Catch : Process on Exchange Rate website" sap:VirtualizedContainerService.HintSize="520,1788" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                    <TryCatch DisplayName="Try Catch : Process on Exchange Rate website" sap:VirtualizedContainerService.HintSize="1024,5650" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                       <TryCatch.Try>
-                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Edge Daily Foreign Exchange Rates" sap:VirtualizedContainerService.HintSize="518,843" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" OpenMode="IfNotOpen" ScopeGuid="38541c1d-e519-43c1-a931-3b8edc80700a" Version="V2" WindowResize="Maximize">
+                        <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Edge Daily Foreign Exchange Rates" sap:VirtualizedContainerService.HintSize="1022,4705" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" OpenMode="IfNotOpen" ScopeGuid="38541c1d-e519-43c1-a931-3b8edc80700a" Version="V2" WindowResize="Maximize">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Process to Get Exchange Rate" sap:VirtualizedContainerService.HintSize="484,625" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                              <Sequence DisplayName="Process to Get Exchange Rate" sap:VirtualizedContainerService.HintSize="988,4487" sap2010:WorkflowViewState.IdRef="Sequence_28">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_ExtractDataTable" />
-                                  <Variable x:TypeArguments="x:Int32" Default="1" Name="FirstIdx" />
-                                  <Variable x:TypeArguments="x:Int32" Default="2" Name="SecondIdx" />
-                                  <Variable x:TypeArguments="x:String" Name="CurrencyStr" />
                                   <Variable x:TypeArguments="si:FileInfo" Name="zipfileInfo" />
                                 </Sequence.Variables>
                                 <sap:WorkflowViewStateService.ViewState>
@@ -358,7 +356,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <uix:NCheckState DisplayName="Check App State 'Cookies check'" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Timeout="[CDbl(Config(&quot;ShortDelay&quot;))]" Version="V4">
+                                <uix:NCheckState DisplayName="Check App State 'Cookies check'" sap:VirtualizedContainerService.HintSize="954,533" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Timeout="[CDbl(Config(&quot;ShortDelay&quot;))]" Version="V4">
                                   <uix:NCheckState.IfExists>
                                     <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,282" sap2010:WorkflowViewState.IdRef="Sequence_35">
                                       <sap:WorkflowViewStateService.ViewState>
@@ -368,13 +366,7 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'Proceed with necessary cookies'" sap:VirtualizedContainerService.HintSize="416,220" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Timeout="[CDbl(Config(&quot;ShortDelay&quot;))]" Version="V4">
                                         <uix:NClick.Target>
-                                          <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="53f66008-1fd4-425c-bcc4-7107efc9f6a3" CvElementArea="1672, 533, 185, 72" CvType="Button" DesignTimeRectangle="1672, 531, 186, 74" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='necessary-cookie-button' aaname='Proceed with necessary cookies' check:innerText='Proceed with necessary cookies' /&gt;" Guid="573d0958-e890-4a80-b55d-d6684aca900b" InformativeScreenshot="751f1e81f98b7b9bc9d14092146d5953.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                            <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                <uix:Target CVScreenId="53f66008-1fd4-425c-bcc4-7107efc9f6a3" CvElementArea="1672, 533, 185, 72" CvType="Button" DesignTimeRectangle="1674, 535, 181, 68" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='BUTTON' class='' aaname='Proceed with necessary cookies' check:innerText='Proceed with necessary cookies' /&gt;" Guid="2a9d4b9b-c640-49b3-a14b-37f5349e632b" SearchSteps="FuzzySelector, CV" />
-                                              </scg:List>
-                                            </uix:TargetAnchorable.Anchors>
-                                          </uix:TargetAnchorable>
+                                          <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" DesignTimeRectangle="1417, 410, 181, 68" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='SPAN' innertext='Proceed with necessary cookies' parentclass='cookie-table' /&gt;" Guid="e62d8106-8798-44c0-b7d8-a04409a8f5cf" InformativeScreenshot="b3b42f1e84516100dcff9d5636c87cb5.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                                         </uix:NClick.Target>
                                         <uix:NClick.VerifyOptions>
                                           <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -390,165 +382,73 @@
                                     </Sequence>
                                   </uix:NCheckState.IfExists>
                                   <uix:NCheckState.IfNotExists>
-                                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Sequence_36">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </Sequence>
                                   </uix:NCheckState.IfNotExists>
                                   <uix:NCheckState.Target>
-                                    <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="0b75f493-9455-43aa-8392-2e92a907d0cc" CvTextArea="1428, 158, 208, 20" CvTextArgument="Our use of cookies" CvType="Text" DesignTimeRectangle="1429, 155, 460, 29" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl isleaf='1' tag='H2' /&gt;" Guid="cf6e66a7-c801-40f8-87ab-e33631e5b391" InformativeScreenshot="e28cd5620da69c87ac4ca9454e7d03d5.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                                    <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" DesignTimeRectangle="1409, 160, 500, 846" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='cookie-inner' tag='DIV' visibleinnertext='Our use of cookies*' parentclass='cookie-block' /&gt;" Guid="d47c1da9-bb93-4ded-9457-1947d6a0567b" InformativeScreenshot="2a74f7db18bdfba135d0d3dbf806090c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                                   </uix:NCheckState.Target>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </uix:NCheckState>
-                                <uix:NNavigateBrowser Action="Refresh" ContinueOnError="True" DisplayName="Navigate Browser - Refresh" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" Version="V4">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </uix:NNavigateBrowser>
-                                <uix:NMouseScroll KeyModifiers="{x:Null}" ContinueOnError="True" Direction="Down" DisplayName="Mouse Scroll : Scroll down to History Exchange Rate" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="NMouseScroll_2" InteractionMode="HardwareEvents" MovementUnits="10" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Version="V4">
-                                  <uix:NMouseScroll.SearchedElement>
-                                    <uix:SearchedElement>
-                                      <uix:SearchedElement.Target>
-                                        <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="c0b1e33f-0b02-4214-be26-e1848bf4a19b" ContentHash="EKaB2rkQSE-rxX-dlT603w" CvTextArea="818, 433, 417, 21" CvType="AnyWordGroup" DesignTimeRectangle="256, 428, 1550, 31" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H3' aaname='Historical Foreign Exchange Rates' parentclass='title' /&gt;" Guid="8950eb8f-7b55-4c06-9cee-bf125a0c9ba3" ImageBase64="" InformativeScreenshot="3da2e118433d4b9a061e316903ba0a5b.png" Reference="qXgsZnkshUyALcmikwPb7g/yiAMoExZJUyJNY0AckbS8Q" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Visible" />
-                                      </uix:SearchedElement.Target>
-                                      <uix:SearchedElement.Timeout>
-                                        <InArgument x:TypeArguments="x:Double" />
-                                      </uix:SearchedElement.Timeout>
-                                    </uix:SearchedElement>
-                                  </uix:NMouseScroll.SearchedElement>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </uix:NMouseScroll>
-                                <Sequence DisplayName="Fill up Criteria From" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_37">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'since'" sap:VirtualizedContainerService.HintSize="416,227" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Timeout="[CDbl(Config(&quot;ShortDelay&quot;))]" Version="V4">
-                                    <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="6656b376-3b81-44d1-8a0c-1b381c059ca6" DesignTimeRectangle="1384, 408, 160, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='INPUT' type='text' placeholder='Select a date' idx='{0}' /&gt;&quot;, FirstIdx)]" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' placeholder='Select a date' class='react-datepicker-ignore-onclickoutside' aaname='' /&gt;" Guid="828c2ab3-85e3-4926-965d-06eaecba20da" InformativeScreenshot="ffa2d1730ff89bf7171e56e334aa2172.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target CVScreenId="6656b376-3b81-44d1-8a0c-1b381c059ca6" CvTextArea="1326, 417, 43, 15" CvTextArgument="since" CvType="Text" DesignTimeRectangle="1327, 412, 42, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl type='' class='' isleaf='1' tag='P' aaname='since' check:innerText='since' /&gt;" Guid="dff8ff14-c0d4-444a-a825-59de322c4b5f" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NClick.Target>
-                                    <uix:NClick.VerifyOptions>
-                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                                        <uix:VerifyExecutionOptions.Retry>
-                                          <InArgument x:TypeArguments="x:Boolean" />
-                                        </uix:VerifyExecutionOptions.Retry>
-                                        <uix:VerifyExecutionOptions.Timeout>
-                                          <InArgument x:TypeArguments="x:Double" />
-                                        </uix:VerifyExecutionOptions.Timeout>
-                                      </uix:VerifyExecutionOptions>
-                                    </uix:NClick.VerifyOptions>
-                                  </uix:NClick>
-                                  <uix:NSelectItem DisplayName="Select Item : Period Month : Since" sap:VirtualizedContainerService.HintSize="416,190" sap2010:WorkflowViewState.IdRef="NSelectItem_5" Item="[MonthName(CDate(Config(&quot;Period&quot;)).Month)]" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Timeout="[CDbl(Config(&quot;ShortDelay&quot;))]" Version="V4">
-                                    <uix:NSelectItem.Items>
-                                      <scg:List x:TypeArguments="x:String" Capacity="12">
-                                        <x:String>January</x:String>
-                                        <x:String>February</x:String>
-                                        <x:String>March</x:String>
-                                        <x:String>April</x:String>
-                                        <x:String>May</x:String>
-                                        <x:String>June</x:String>
-                                        <x:String>July</x:String>
-                                        <x:String>August</x:String>
-                                        <x:String>September</x:String>
-                                        <x:String>October</x:String>
-                                        <x:String>November</x:String>
-                                        <x:String>December</x:String>
-                                      </scg:List>
-                                    </uix:NSelectItem.Items>
-                                    <uix:NSelectItem.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="c107e005-67a0-487a-8eda-77a89633c937" CvElementArea="1408, 458, 124, 37" CvType="InputBox" DesignTimeRectangle="1411, 461, 118, 33" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='SELECT' parentclass='month-year' idx='{0}' /&gt;&quot;, FirstIdx)]" Guid="496d1026-0744-46eb-a593-53102d5691f2" ImageBase64="" InformativeScreenshot="2e71b4742a0d0d775c22c6ccda91484c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive" />
-                                    </uix:NSelectItem.Target>
-                                  </uix:NSelectItem>
-                                  <uix:NSelectItem DisplayName="Select Item : Period Year : Since" sap:VirtualizedContainerService.HintSize="416,190" sap2010:WorkflowViewState.IdRef="NSelectItem_6" Item="[CDate(Config(&quot;Period&quot;)).Year.ToString]" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Timeout="[CDbl(Config(&quot;ShortDelay&quot;))]" Version="V4">
-                                    <uix:NSelectItem.Items>
-                                      <scg:List x:TypeArguments="x:String" Capacity="24">
-                                        <x:String>2002</x:String>
-                                        <x:String>2003</x:String>
-                                        <x:String>2004</x:String>
-                                        <x:String>2005</x:String>
-                                        <x:String>2006</x:String>
-                                        <x:String>2007</x:String>
-                                        <x:String>2008</x:String>
-                                        <x:String>2009</x:String>
-                                        <x:String>2010</x:String>
-                                        <x:String>2011</x:String>
-                                        <x:String>2012</x:String>
-                                        <x:String>2013</x:String>
-                                        <x:String>2014</x:String>
-                                        <x:String>2015</x:String>
-                                        <x:String>2016</x:String>
-                                        <x:String>2017</x:String>
-                                        <x:String>2018</x:String>
-                                        <x:String>2019</x:String>
-                                        <x:String>2020</x:String>
-                                        <x:String>2021</x:String>
-                                        <x:String>2022</x:String>
-                                        <x:String>2023</x:String>
-                                        <x:String>2024</x:String>
-                                        <x:String>2025</x:String>
-                                      </scg:List>
-                                    </uix:NSelectItem.Items>
-                                    <uix:NSelectItem.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="edd0fe84-e50f-4ac8-bb6a-2d89b139bf04" CvElementArea="1537, 603, 78, 38" CvType="InputBox" DesignTimeRectangle="1539, 606, 73, 33" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='SELECT' parentclass='month-year' idx='{0}' /&gt;&quot;, SecondIdx)]" Guid="7e514c93-15a9-463b-a571-9430a7eff3bb" ImageBase64="" InformativeScreenshot="cb5e6961cfac1329245249c87dc2baf0.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive" />
-                                    </uix:NSelectItem.Target>
-                                  </uix:NSelectItem>
-                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '1' on Calendar" sap:VirtualizedContainerService.HintSize="416,220" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Timeout="[CDbl(Config(&quot;ShortDelay&quot;))]" Version="V4">
-                                    <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="801064cc-90f1-4665-9191-1f787b71d50c" CvTextArea="1411, 689, 6, 11" CvTextArgument="[FirstIdx.ToString]" CvType="Text" DesignTimeRectangle="1400, 681, 28, 27" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aria-role='option' tag='DIV' aaname='{0}' parentclass='react-datepicker__week' /&gt;&quot;, FirstIdx)]" Guid="9a78596e-dbce-4180-8e3b-a3a97f6b1766" InformativeScreenshot="fb6b24c734e9d3f4dd8228f7ce921b0f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive" />
-                                    </uix:NClick.Target>
-                                    <uix:NClick.VerifyOptions>
-                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                                        <uix:VerifyExecutionOptions.Retry>
-                                          <InArgument x:TypeArguments="x:Boolean" />
-                                        </uix:VerifyExecutionOptions.Retry>
-                                        <uix:VerifyExecutionOptions.Timeout>
-                                          <InArgument x:TypeArguments="x:Double" />
-                                        </uix:VerifyExecutionOptions.Timeout>
-                                      </uix:VerifyExecutionOptions>
-                                    </uix:NClick.VerifyOptions>
-                                  </uix:NClick>
-                                </Sequence>
-                                <Sequence DisplayName="Fill up Criteria To" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                <Sequence DisplayName="Fill up criteria to obtain since - to" sap:VirtualizedContainerService.HintSize="954,1924" sap2010:WorkflowViewState.IdRef="Sequence_37">
                                   <Sequence.Variables>
-                                    <Variable x:TypeArguments="x:Int32" Name="LastDate" />
+                                    <Variable x:TypeArguments="x:String" Name="strFirstDate" />
+                                    <Variable x:TypeArguments="x:String" Name="strLastDate" />
+                                    <Variable x:TypeArguments="x:String" Name="ScriptOutput" />
                                   </Sequence.Variables>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'to'" sap:VirtualizedContainerService.HintSize="416,227" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Version="V4">
+                                  <ui:MultipleAssign DisplayName="Multiple Assign : First and last date of criteria" sap:VirtualizedContainerService.HintSize="478,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                                    <ui:MultipleAssign.AssignOperations>
+                                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[strFirstDate]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(Config("Period").ToString, "MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("01/MM/yyyy")]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[strLastDate]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">[New DateTime(DateTime.ParseExact(Config("Period").ToString, "MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture).Year, DateTime.ParseExact(Config("Period").ToString, "MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture).Month, DateTime.DaysInMonth(DateTime.ParseExact(Config("Period").ToString, "MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture).Year, DateTime.ParseExact(Config("Period").ToString, "MMM-yyyy", System.Globalization.CultureInfo.InvariantCulture).Month)).ToString("dd/MM/yyyy")]</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                      </scg:List>
+                                    </ui:MultipleAssign.AssignOperations>
+                                  </ui:MultipleAssign>
+                                  <uix:NInjectJsScript DisplayName="Inject Js Script 'Historical Foreign Exchage Rate' (Scroll Down)" sap:VirtualizedContainerService.HintSize="478,283" sap2010:WorkflowViewState.IdRef="NInjectJsScript_4" InputParameter="[strFirstDate]" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" ScriptCode="function (element, input) {&#xD;&#xA;&#x9;if (!element) return 'Error: Could not find the ' + element;&#xD;&#xA;   &#x9;element.scrollIntoView({ behavior: 'smooth', block: 'center' });&#xD;&#xA;&#x9;return 'Success: Scrolled to ' +  element;&#xD;&#xA;}" Version="V4">
+                                    <uix:NInjectJsScript.ScriptOutput>
+                                      <OutArgument x:TypeArguments="x:String">[ScriptOutput]</OutArgument>
+                                    </uix:NInjectJsScript.ScriptOutput>
+                                    <uix:NInjectJsScript.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" DesignTimeRectangle="205, 554, 1550, 31" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H3' aaname='Historical Foreign Exchange Rates' innertext='Historical Foreign Exchange Rates' parentclass='title' /&gt;" Guid="ae40f997-e476-4843-89cc-b16ef732f138" InformativeScreenshot="d6a24369f5695c5617060faadc82ac3b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                    </uix:NInjectJsScript.Target>
+                                  </uix:NInjectJsScript>
+                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'since'" sap:VirtualizedContainerService.HintSize="478,227" sap2010:WorkflowViewState.IdRef="NClick_19" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Version="V4">
                                     <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="050c2ddf-5f98-4a5b-87ed-7e6138b7e4cd" CvTextArea="1594, 563, 81, 14" CvTextArgument="21/02/2025" CvType="Text" DesignTimeRectangle="1590, 553, 160, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='INPUT' type='text' placeholder='Select a date' idx='{0}' /&gt;&quot;, SecondIdx)]" Guid="52378866-278d-4fab-a0ba-28cbfce2f858" InformativeScreenshot="589dcd81c898f4ad70089373a8fb59ce.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="d7c7b5a3-5488-499d-9720-b7176dad0c1d" DesignTimeRectangle="1333, 641, 160, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='' placeholder='Select a date' aaname='' /&gt;" Guid="a4536349-035c-4835-92fa-e1ee2659f474" InformativeScreenshot="84d196d9ffdd4420f82ae2f3f11845e2.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
                                         <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target CVScreenId="050c2ddf-5f98-4a5b-87ed-7e6138b7e4cd" CvTextArea="1557, 563, 19, 14" CvTextArgument="to" CvType="Text" DesignTimeRectangle="1559, 557, 16, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl isleaf='1' tag='P' aaname='to' visibleinnertext='to' type='' class='' check:text='to' /&gt;" Guid="eb662ae8-590a-4b6c-8b4e-889bcf54b886" SearchSteps="FuzzySelector, CV" />
+                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                            <uix:Target CVScreenId="d7c7b5a3-5488-499d-9720-b7176dad0c1d" DesignTimeRectangle="1276, 645, 42, 25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='P' aaname='since' innertext='since' parentclass='filter-type' /&gt;" Guid="00210fd6-a54a-46e7-8097-5aa6846ac591" SearchSteps="Selector" />
                                           </scg:List>
                                         </uix:TargetAnchorable.Anchors>
                                       </uix:TargetAnchorable>
@@ -564,71 +464,30 @@
                                       </uix:VerifyExecutionOptions>
                                     </uix:NClick.VerifyOptions>
                                   </uix:NClick>
-                                  <uix:NSelectItem DisplayName="Select Item : Period Month : To" sap:VirtualizedContainerService.HintSize="416,190" sap2010:WorkflowViewState.IdRef="NSelectItem_7" Item="[MonthName(CDate(Config(&quot;Period&quot;)).Month)]" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Timeout="[CDbl(Config(&quot;ShortDelay&quot;))]" Version="V4">
-                                    <uix:NSelectItem.Items>
-                                      <scg:List x:TypeArguments="x:String" Capacity="12">
-                                        <x:String>January</x:String>
-                                        <x:String>February</x:String>
-                                        <x:String>March</x:String>
-                                        <x:String>April</x:String>
-                                        <x:String>May</x:String>
-                                        <x:String>June</x:String>
-                                        <x:String>July</x:String>
-                                        <x:String>August</x:String>
-                                        <x:String>September</x:String>
-                                        <x:String>October</x:String>
-                                        <x:String>November</x:String>
-                                        <x:String>December</x:String>
-                                      </scg:List>
-                                    </uix:NSelectItem.Items>
-                                    <uix:NSelectItem.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="c107e005-67a0-487a-8eda-77a89633c937" CvElementArea="1408, 458, 124, 37" CvType="InputBox" DesignTimeRectangle="1411, 461, 118, 33" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='SELECT' parentclass='month-year' idx='{0}' /&gt;&quot;, FirstIdx)]" Guid="496d1026-0744-46eb-a593-53102d5691f2" ImageBase64="" InformativeScreenshot="2e71b4742a0d0d775c22c6ccda91484c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive" />
-                                    </uix:NSelectItem.Target>
-                                  </uix:NSelectItem>
-                                  <uix:NSelectItem DisplayName="Select Item : Period Year : To" sap:VirtualizedContainerService.HintSize="416,190" sap2010:WorkflowViewState.IdRef="NSelectItem_8" Item="[CDate(Config(&quot;Period&quot;)).Year.ToString]" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Timeout="[CDbl(Config(&quot;ShortDelay&quot;))]" Version="V4">
-                                    <uix:NSelectItem.Items>
-                                      <scg:List x:TypeArguments="x:String" Capacity="24">
-                                        <x:String>2002</x:String>
-                                        <x:String>2003</x:String>
-                                        <x:String>2004</x:String>
-                                        <x:String>2005</x:String>
-                                        <x:String>2006</x:String>
-                                        <x:String>2007</x:String>
-                                        <x:String>2008</x:String>
-                                        <x:String>2009</x:String>
-                                        <x:String>2010</x:String>
-                                        <x:String>2011</x:String>
-                                        <x:String>2012</x:String>
-                                        <x:String>2013</x:String>
-                                        <x:String>2014</x:String>
-                                        <x:String>2015</x:String>
-                                        <x:String>2016</x:String>
-                                        <x:String>2017</x:String>
-                                        <x:String>2018</x:String>
-                                        <x:String>2019</x:String>
-                                        <x:String>2020</x:String>
-                                        <x:String>2021</x:String>
-                                        <x:String>2022</x:String>
-                                        <x:String>2023</x:String>
-                                        <x:String>2024</x:String>
-                                        <x:String>2025</x:String>
-                                      </scg:List>
-                                    </uix:NSelectItem.Items>
-                                    <uix:NSelectItem.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="edd0fe84-e50f-4ac8-bb6a-2d89b139bf04" CvElementArea="1537, 603, 78, 38" CvType="InputBox" DesignTimeRectangle="1539, 606, 73, 33" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='SELECT' parentclass='month-year' idx='{0}' /&gt;&quot;, SecondIdx)]" Guid="7e514c93-15a9-463b-a571-9430a7eff3bb" ImageBase64="" InformativeScreenshot="cb5e6961cfac1329245249c87dc2baf0.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive" />
-                                    </uix:NSelectItem.Target>
-                                  </uix:NSelectItem>
-                                  <Assign DisplayName="Find Last Day of Month from Period" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_9">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="x:Int32">[LastDate]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="x:Int32">[DateSerial(CDate(Config("Period")).Year, CDate(Config("Period")).Month + 1, 0).Day]</InArgument>
-                                    </Assign.Value>
-                                  </Assign>
-                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Last Date on Calendar" sap:VirtualizedContainerService.HintSize="416,220" sap2010:WorkflowViewState.IdRef="NClick_12" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Timeout="[CDbl(Config(&quot;ShortDelay&quot;))]" Version="V4">
+                                  <uix:NInjectJsScript DisplayName="Inject Js Script 'since' (Datetime Picker)" sap:VirtualizedContainerService.HintSize="478,283" sap2010:WorkflowViewState.IdRef="NInjectJsScript_7" InputParameter="[strFirstDate]" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" ScriptCode="function (element, input) {&#xD;&#xA;    try {&#xD;&#xA;        var parts = input.split('/');&#xD;&#xA;        var targetMonth = (parseInt(parts[1], 10) - 1).toString();&#xD;&#xA;        var targetYear = parts[2];&#xD;&#xA;&#x9;&#x9;var targetDay = parseInt(parts[0], 10).toString();&#xD;&#xA;&#xD;&#xA;        var yearSelects = document.querySelectorAll('.month-year select');&#xD;&#xA;        if (yearSelects.length &lt; 2) return 'Error: Calendar selects not found.';&#xD;&#xA;        &#xD;&#xA;        yearSelects[1].value = targetYear;&#xD;&#xA;        yearSelects[1].dispatchEvent(new Event('change', { bubbles: true }));&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;var monthSelects = document.querySelectorAll('.month-year select');&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;monthSelects[0].value = targetMonth;&#xD;&#xA;&#x9;&#x9;monthSelects[0].dispatchEvent(new Event('change', { bubbles: true }));&#xD;&#xA;&#xD;&#xA;        var days = document.querySelectorAll('.react-datepicker__day:not(.react-datepicker__day--outside-month)');&#xD;&#xA;        &#xD;&#xA;&#x9;        for (var i = 0; i &lt; days.length; i++) {&#xD;&#xA;&#xD;&#xA;&#x9;            if (days[i].innerText.trim() === targetDay) {&#xD;&#xA;&#x9;                &#xD;&#xA;&#x9;                days[i].dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));&#xD;&#xA;&#x9;                days[i].dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));&#xD;&#xA;&#x9;                days[i].dispatchEvent(new MouseEvent('click', { bubbles: true }));&#xD;&#xA;&#x9;                &#xD;&#xA;&#x9;                return 'Success: Clicked Day ' + targetDay;&#xD;&#xA;&#x9;            }&#xD;&#xA;&#x9;        }&#xD;&#xA;&#x9;        return 'Error: Day ' + targetDay + ' not found.';&#xD;&#xA;&#x9;  &#xD;&#xA;    } catch(err) {&#xD;&#xA;        return 'Error: ' + err.message;&#xD;&#xA;    }&#xD;&#xA;}" Version="V4">
+                                    <uix:NInjectJsScript.ScriptOutput>
+                                      <OutArgument x:TypeArguments="x:String">[ScriptOutput]</OutArgument>
+                                    </uix:NInjectJsScript.ScriptOutput>
+                                    <uix:NInjectJsScript.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" DesignTimeRectangle="615, 523, 160, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' parentclass='react-datepicker__input-container ' /&gt;" Guid="3216263a-27fd-4bb4-8d65-b4a678032c82" InformativeScreenshot="10534f1cfeec4c073eb58d9f1dc446a7.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                                        <uix:TargetAnchorable.Anchors>
+                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                            <uix:Target CVScreenId="f962c922-af78-4869-b0e2-c8c2b934c5df" DesignTimeRectangle="558, 528, 42, 25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='P' aaname='since' innertext='since' parentclass='filter-type' /&gt;" Guid="673e7f45-5e12-414b-a24d-24fba2f6162e" SearchSteps="Selector" />
+                                          </scg:List>
+                                        </uix:TargetAnchorable.Anchors>
+                                      </uix:TargetAnchorable>
+                                    </uix:NInjectJsScript.Target>
+                                  </uix:NInjectJsScript>
+                                  <ui:LogMessage DisplayName="Log Message : Input Since date" sap:VirtualizedContainerService.HintSize="478,177" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[ScriptOutput]" />
+                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'to'" sap:VirtualizedContainerService.HintSize="478,227" sap2010:WorkflowViewState.IdRef="NClick_18" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Version="V4">
                                     <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="801064cc-90f1-4665-9191-1f787b71d50c" CvTextArea="1411, 689, 6, 11" CvTextArgument="[LastDate.ToString]" CvType="Text" DesignTimeRectangle="1400, 681, 28, 27" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aria-role='option' tag='DIV' aaname='{0}' parentclass='react-datepicker__week' /&gt;&quot;, LastDate)]" Guid="9a78596e-dbce-4180-8e3b-a3a97f6b1766" InformativeScreenshot="fb6b24c734e9d3f4dd8228f7ce921b0f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive" />
+                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="9a63e2cf-480f-4a66-8353-9681cff778b2" DesignTimeRectangle="1539, 704, 160, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl class='' tag='INPUT' type='text' placeholder='Select a date' aaname='' /&gt;" Guid="23859e3a-0676-4209-8275-ac90273a7d08" InformativeScreenshot="86e81bfcb13c8352a25f0a52e099903e.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                                        <uix:TargetAnchorable.Anchors>
+                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                            <uix:Target CVScreenId="9a63e2cf-480f-4a66-8353-9681cff778b2" DesignTimeRectangle="1508, 708, 16, 25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='P' aaname='to' innertext='to' /&gt;" Guid="e22cdf89-8831-403f-b10e-123782bf7daa" SearchSteps="Selector" />
+                                          </scg:List>
+                                        </uix:TargetAnchorable.Anchors>
+                                      </uix:TargetAnchorable>
                                     </uix:NClick.Target>
                                     <uix:NClick.VerifyOptions>
                                       <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -641,23 +500,32 @@
                                       </uix:VerifyExecutionOptions>
                                     </uix:NClick.VerifyOptions>
                                   </uix:NClick>
+                                  <uix:NInjectJsScript DisplayName="Inject Js Script 'to' (Datetime Picker)" sap:VirtualizedContainerService.HintSize="478,283" sap2010:WorkflowViewState.IdRef="NInjectJsScript_3" InputParameter="[strLastDate]" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" ScriptCode="function (element, input) {&#xD;&#xA;    try {&#xD;&#xA;        var parts = input.split('/');&#xD;&#xA;        var targetMonth = (parseInt(parts[1], 10) - 1).toString();&#xD;&#xA;        var targetYear = parts[2];&#xD;&#xA;&#x9;&#x9;var targetDay = parseInt(parts[0], 10).toString();&#xD;&#xA;&#xD;&#xA;        var yearSelects = document.querySelectorAll('.month-year select');&#xD;&#xA;        if (yearSelects.length &lt; 2) return 'Error: Calendar selects not found.';&#xD;&#xA;        &#xD;&#xA;        yearSelects[1].value = targetYear;&#xD;&#xA;        yearSelects[1].dispatchEvent(new Event('change', { bubbles: true }));&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;var monthSelects = document.querySelectorAll('.month-year select');&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;monthSelects[0].value = targetMonth;&#xD;&#xA;&#x9;&#x9;monthSelects[0].dispatchEvent(new Event('change', { bubbles: true }));&#xD;&#xA;&#xD;&#xA;        var days = document.querySelectorAll('.react-datepicker__day:not(.react-datepicker__day--outside-month)');&#xD;&#xA;        &#xD;&#xA;&#x9;        for (var i = 0; i &lt; days.length; i++) {&#xD;&#xA;&#xD;&#xA;&#x9;            if (days[i].innerText.trim() === targetDay) {&#xD;&#xA;&#x9;                &#xD;&#xA;&#x9;                days[i].dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));&#xD;&#xA;&#x9;                days[i].dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));&#xD;&#xA;&#x9;                days[i].dispatchEvent(new MouseEvent('click', { bubbles: true }));&#xD;&#xA;&#x9;                &#xD;&#xA;&#x9;                return 'Success: Clicked Day ' + targetDay;&#xD;&#xA;&#x9;            }&#xD;&#xA;&#x9;        }&#xD;&#xA;&#x9;        return 'Error: Day ' + targetDay + ' not found.';&#xD;&#xA;&#x9;  &#xD;&#xA;    } catch(err) {&#xD;&#xA;        return 'Error: ' + err.message;&#xD;&#xA;    }&#xD;&#xA;}" Version="V4">
+                                    <uix:NInjectJsScript.ScriptOutput>
+                                      <OutArgument x:TypeArguments="x:String">[ScriptOutput]</OutArgument>
+                                    </uix:NInjectJsScript.ScriptOutput>
+                                    <uix:NInjectJsScript.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" DesignTimeRectangle="1539, 730, 160, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl class='react-datepicker-ignore-onclickoutside' tag='INPUT' type='text' placeholder='Select a date' aaname='' /&gt;" Guid="a16518cd-11ad-4419-915d-a430fc192450" InformativeScreenshot="cf1a6d84a75d655827c2df13dd691c7c.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                                        <uix:TargetAnchorable.Anchors>
+                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                            <uix:Target CVScreenId="6c964b6a-de08-415f-959f-7785c597688b" DesignTimeRectangle="1508, 734, 16, 25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='P' aaname='to' innertext='to' /&gt;" Guid="92892877-f026-4e98-97a8-351689b094f3" SearchSteps="Selector" />
+                                          </scg:List>
+                                        </uix:TargetAnchorable.Anchors>
+                                      </uix:TargetAnchorable>
+                                    </uix:NInjectJsScript.Target>
+                                  </uix:NInjectJsScript>
+                                  <ui:LogMessage DisplayName="Log Message : Input To date" sap:VirtualizedContainerService.HintSize="478,170" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[ScriptOutput]" />
                                 </Sequence>
-                                <Sequence DisplayName="Export process" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_79">
+                                <Sequence DisplayName="Export process" sap:VirtualizedContainerService.HintSize="954,642" sap2010:WorkflowViewState.IdRef="Sequence_79">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'GO'" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NClick_13" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Version="V4">
+                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'GO'" sap:VirtualizedContainerService.HintSize="416,227" sap2010:WorkflowViewState.IdRef="NClick_13" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Version="V4">
                                     <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="9ad42c70-ce04-4d93-a5c9-f8e719e2e872" CvElementArea="1768, 549, 41, 41" CvTextArea="1776, 563, 25, 14" CvType="Icon" DesignTimeRectangle="1770, 552, 36, 36" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl class='historical-btn' tag='BUTTON' type='button' aaname='GO' /&gt;" Guid="228072b2-4632-4876-a7e6-f6638d2c5ddd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOrSURBVFhHzZjbT1NBEIf5u4zhSd998JIYEJGYSIwPGEGDgLcIVgEhEiqXArWESAEJ1wIBalNBLoUgtNyhUChQCEUo0BZox8yaU0/PnN5Aymnypc3O7MyvZ3f27G7Mhm0TpEyMsOG0rG3YRH+flVMJnDOvQIt2GPKUGniYo4LrqcUQm/QeLt3NYcQmyVgb2nKV7cwX+wjjhENEAvtHJqGwuhPuZJT7xIQL9ilQdbAYwrjBCEvg7KIF5LXdcDNNThJHyo00OYs1s2AhecQIKVA7MAGp+bUk0VnBmNrBCZJPSFCBOHdOM5zhgrExhzBvWAJbvxsgLqOMBP3fxD0vhVadgeQPKlBvMEJiloIEOy8SXyhAbzARHaIClyxWSP9UT4KcN5gTcwv1EIGVjTrSOVpgbqEeP4GjpnlIyDy/oghFQqaCaQgosKyhl3SKNqhBVKB1bQOS3ypJh2iDGlALEagdGCfOFwVqIQJL1D3EUYzb6WUgr9OCpm+C0aYfh/zqLriWUkT8Kpv7fH4NPSOQXvSNxBMDtRCBTwvUxFFIeaMeHIcu8HqBfVvWt8Fx4ASPxwvdg5M+P1XbTzh0uVn79u4+WDd3wOU+Zv3mLDYmXhibD2ohAuNDVG+2og329p3w23EIxWqtnw0TJmdX+/lt7Tggu6Ld54NP2DC5xEQOm8wkPh/UQgReTc4jjnz6xubhxOOBVv0vYuOjH50Fj9cLnf1GYnucX8ueqH33AFIL6oidA7X4CVxeXYPL92TEkePWsxJYsdnZcL6r1BA7n+mldXC6j6CwppvYfHbXEeSpuoiNA7VEJPCRrAY27Xt+//yDsgOmzetsTiH4G9vM1q2gAnB4cSRqNIPExkEEhhpiMYFPC+vZcGOFGuetvqThCDw+8bBCEto4yBAjwYqEG+IDpxtel7YQe4tuzCdwfG4Vjo5PoKLpB/FD8A9ghed+6SQ2DtEiCbXMdA2YWAXylxMOvsDG3lFWJFhUQr+Xn5tYheOyc/9N4LeW6DITaqHGCrTZ99jw9A5PQdKrKtaO30PGf/MKp4Nte5f59QxN+dY8fGIoDNubdWMkPh/RhTqcV11K7ldWhbgA8z8obnF1C2RVfysc5ycWjtAPnx6Ku/Ig8HxHRF91kW4WnnxUs/mIr69ACbEd7ejHPfFQBNwsIJLebiGS37Aikt7yI5I/NCFRP3ZmRXDs5IjWwT0+oyzygzuHpK8+OCR9ecQxs7As3es3PpK9wBQi2Svgi0DyAv8AofypeyrSIgkAAAAASUVORK5CYII=" InformativeScreenshot="686c3160919c48d20b87b2407dcf753b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target CVScreenId="9ad42c70-ce04-4d93-a5c9-f8e719e2e872" CvTextArea="818, 471, 417, 22" CvTextArgument="Historical Foreign Exchange Rates i" CvType="Text" DesignTimeRectangle="256, 466, 1550, 31" ElementType="Text" FuzzySelectorArgument="&lt;webctrl type='' tag='H3' class='' aaname='Historical Foreign Exchange Rates' check:innerText='Historical Foreign Exchange Rates' /&gt;" Guid="8cb16e23-6e15-4bb9-8bb1-5c796f327f1e" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
+                                      <uix:TargetAnchorable BrowserURL="https://www.bot.or.th/en/statistics/exchange-rate.html" CVScreenId="f171547a-62e8-462d-b90e-194172eb6015" DesignTimeRectangle="1719, 729, 36, 36" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl class='historical-btn' tag='BUTTON' type='button' aaname='GO' innertext='GO' /&gt;" Guid="41d5d1e6-b71b-4ca2-9249-4728f2fe8b4d" InformativeScreenshot="e2729329ae2c4d8d499c3e4e9a06419d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Daily Foreign Exchange Rates' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                                     </uix:NClick.Target>
                                     <uix:NClick.VerifyOptions>
                                       <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
@@ -671,12 +539,12 @@
                                     </uix:NClick.VerifyOptions>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </uix:NClick>
-                                  <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll : Scroll down to Export (Small screen resolution)" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NMouseScroll_3" InteractionMode="HardwareEvents" MovementUnits="1" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Version="V4">
+                                  <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll : Scroll down to Export (Small screen resolution)" sap:VirtualizedContainerService.HintSize="416,271" sap2010:WorkflowViewState.IdRef="NMouseScroll_3" InteractionMode="HardwareEvents" MovementUnits="1" ScopeIdentifier="38541c1d-e519-43c1-a931-3b8edc80700a" Version="V4">
                                     <uix:NMouseScroll.SearchedElement>
                                       <uix:SearchedElement>
                                         <uix:SearchedElement.Target>
@@ -689,7 +557,7 @@
                                     </uix:NMouseScroll.SearchedElement>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
@@ -722,7 +590,7 @@
                                     </sap:WorkflowViewStateService.ViewState>
                                   </uix:NClick>
                                 </Sequence>
-                                <Assign DisplayName="Assign : File Info" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                <Assign DisplayName="Assign : File Info" sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="Assign_17">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="si:FileInfo">[zipfileInfo]</OutArgument>
                                   </Assign.To>
@@ -740,7 +608,7 @@ DateTime.ParseExact(Config("Period").ToString,"MMM-yyyy",System.Globalization.Cu
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </Assign>
-                                <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download : Exchange rate file" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[zipfileInfo]" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" IgnoreFiles="tmp,crdowloaded">
+                                <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download : Exchange rate file" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[zipfileInfo]" sap:VirtualizedContainerService.HintSize="954,570" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" IgnoreFiles="tmp,crdowloaded">
                                   <ui:GetLastDownloadedFile.Body>
                                     <ActivityAction>
                                       <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,278" sap2010:WorkflowViewState.IdRef="Sequence_77">
@@ -769,272 +637,27 @@ DateTime.ParseExact(Config("Period").ToString,"MMM-yyyy",System.Globalization.Cu
                                   </ui:GetLastDownloadedFile.Body>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:GetLastDownloadedFile>
-                                <Sequence DisplayName="Process to Extract zip" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                                <Sequence DisplayName="Process to Extract zip" sap:VirtualizedContainerService.HintSize="954,442" sap2010:WorkflowViewState.IdRef="Sequence_61">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <uascw:ExtractFiles Content="{x:Null}" DestinationFolderInfo="{x:Null}" File="{x:Null}" Password="{x:Null}" CodePage="Default" ConflictResolution="Replace" DestinationFolder="[Config(&quot;Process_Path&quot;).ToString]" DisplayName="Extract/Unzip Files" ExtractToADedicatedFolder="False" FileToExtract="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;,&quot;ER_ZIP_&quot; + &#xA;DateTime.ParseExact(Config(&quot;Period&quot;).ToString,&quot;MMM-yyyy&quot;,System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;ddMMyyyy&quot;) + &#xA;&quot;-&quot; +&#xA;DateTime.ParseExact(Config(&quot;Period&quot;).ToString,&quot;MMM-yyyy&quot;,System.Globalization.CultureInfo.InvariantCulture).AddMonths(1).AddDays(-1).ToString(&quot;ddMMyyyy&quot;) +&#xA;&quot;.zip&quot;)]" sap:VirtualizedContainerService.HintSize="416,242" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="False" />
-                                  <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="416,105.6" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;,&quot;ER_ZIP_&quot; + &#xA;DateTime.ParseExact(Config(&quot;Period&quot;).ToString,&quot;MMM-yyyy&quot;,System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;ddMMyyyy&quot;) + &#xA;&quot;-&quot; +&#xA;DateTime.ParseExact(Config(&quot;Period&quot;).ToString,&quot;MMM-yyyy&quot;,System.Globalization.CultureInfo.InvariantCulture).AddMonths(1).AddDays(-1).ToString(&quot;ddMMyyyy&quot;) +&#xA;&quot;.zip&quot;)]" />
+                                  <uascw:ExtractFiles Content="{x:Null}" DestinationFolderInfo="{x:Null}" File="{x:Null}" Password="{x:Null}" CodePage="Default" ConflictResolution="Replace" DestinationFolder="[Config(&quot;Process_Path&quot;).ToString]" DisplayName="Extract/Unzip Files : Exchange rate ZIP" ExtractToADedicatedFolder="False" FileToExtract="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;,&quot;ER_ZIP_&quot; + &#xA;DateTime.ParseExact(Config(&quot;Period&quot;).ToString,&quot;MMM-yyyy&quot;,System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;ddMMyyyy&quot;) + &#xA;&quot;-&quot; +&#xA;DateTime.ParseExact(Config(&quot;Period&quot;).ToString,&quot;MMM-yyyy&quot;,System.Globalization.CultureInfo.InvariantCulture).AddMonths(1).AddDays(-1).ToString(&quot;ddMMyyyy&quot;) +&#xA;&quot;.zip&quot;)]" sap:VirtualizedContainerService.HintSize="416,242" sap2010:WorkflowViewState.IdRef="ExtractFiles_1" SkipUnsupportedFiles="False" />
+                                  <ui:DeleteFileX DisplayName="Delete File : Delete ZIP" sap:VirtualizedContainerService.HintSize="416,106" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;,&quot;ER_ZIP_&quot; + &#xA;DateTime.ParseExact(Config(&quot;Period&quot;).ToString,&quot;MMM-yyyy&quot;,System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;ddMMyyyy&quot;) + &#xA;&quot;-&quot; +&#xA;DateTime.ParseExact(Config(&quot;Period&quot;).ToString,&quot;MMM-yyyy&quot;,System.Globalization.CultureInfo.InvariantCulture).AddMonths(1).AddDays(-1).ToString(&quot;ddMMyyyy&quot;) +&#xA;&quot;.zip&quot;)]" />
                                 </Sequence>
-                                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Currency Data" sap:VirtualizedContainerService.HintSize="450,50" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Config(&quot;ListCurrency&quot;).ToString.Split(&quot;,&quot;c)]">
-                                  <ui:ForEach.Body>
-                                    <ActivityAction x:TypeArguments="x:String">
-                                      <ActivityAction.Argument>
-                                        <DelegateInArgument x:TypeArguments="x:String" Name="Curr" />
-                                      </ActivityAction.Argument>
-                                      <Sequence DisplayName="Process to Extract Data by Currency" sap:VirtualizedContainerService.HintSize="620,2950" sap2010:WorkflowViewState.IdRef="Sequence_38">
-                                        <Sequence.Variables>
-                                          <Variable x:TypeArguments="x:String" Name="strTempText" />
-                                          <Variable x:TypeArguments="x:String" Name="str_RateRatio" />
-                                        </Sequence.Variables>
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <Assign DisplayName="Set Currency Variable" sap:VirtualizedContainerService.HintSize="586,175" sap2010:WorkflowViewState.IdRef="Assign_10">
-                                          <Assign.To>
-                                            <OutArgument x:TypeArguments="x:String">[CurrencyStr]</OutArgument>
-                                          </Assign.To>
-                                          <Assign.Value>
-                                            <InArgument x:TypeArguments="x:String">[Curr]</InArgument>
-                                          </Assign.Value>
-                                        </Assign>
-                                        <TryCatch DisplayName="Try Catch : Match file by currency" sap:VirtualizedContainerService.HintSize="586,1343" sap2010:WorkflowViewState.IdRef="TryCatch_7">
-                                          <TryCatch.Try>
-                                            <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="486,851" sap2010:WorkflowViewState.IdRef="Sequence_64">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <If Condition="[Directory.GetFiles(Config(&quot;Process_Path&quot;).ToString, &quot;*&quot; + CurrencyStr + &quot;*.csv&quot;).Count &gt; 0]" DisplayName="If : Match file by currency" sap:VirtualizedContainerService.HintSize="452,791" sap2010:WorkflowViewState.IdRef="If_5">
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                                <If.Then>
-                                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,571" sap2010:WorkflowViewState.IdRef="Sequence_62">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:ReadTextFile File="{x:Null}" Content="[strTempText]" DisplayName="Read Text File : currency csv" FileName="[Directory.GetFiles(Config(&quot;Process_Path&quot;).ToString, &quot;*&quot; + CurrencyStr + &quot;*.csv&quot;).First]" sap:VirtualizedContainerService.HintSize="416,113" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-                                                    <Assign DisplayName="Get ratio" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_16">
-                                                      <Assign.To>
-                                                        <OutArgument x:TypeArguments="x:String">[str_RateRatio]</OutArgument>
-                                                      </Assign.To>
-                                                      <Assign.Value>
-                                                        <InArgument x:TypeArguments="x:String">[Regex.Match(strTempText.Substring(0, strTempText.IndexOf("Period")), "\(\w+ /\s*(\d+)").Groups(1).Value]</InArgument>
-                                                      </Assign.Value>
-                                                    </Assign>
-                                                    <Assign DisplayName="Substring from peiod to last" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_15">
-                                                      <Assign.To>
-                                                        <OutArgument x:TypeArguments="x:String">[strTempText]</OutArgument>
-                                                      </Assign.To>
-                                                      <Assign.Value>
-                                                        <InArgument x:TypeArguments="x:String">[strTempText.Substring(strTempText.IndexOf("Period"))]</InArgument>
-                                                      </Assign.Value>
-                                                    </Assign>
-                                                    <ui:GenerateDataTable ColumnSizes="{x:Null}" Positions="{x:Null}" AutoDetectTypes="False" CSVParsing="False" ColumnSeparators="|" DataTable="[dt_ExtractDataTable]" DisplayName="Generate Data Table From Text" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[strTempText]" NewLineSeparator="&#xA;" UseColumnHeader="True">
-                                                      <sap:WorkflowViewStateService.ViewState>
-                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                        </scg:Dictionary>
-                                                      </sap:WorkflowViewStateService.ViewState>
-                                                    </ui:GenerateDataTable>
-                                                  </Sequence>
-                                                </If.Then>
-                                                <If.Else>
-                                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Sequence_63">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                  </Sequence>
-                                                </If.Else>
-                                              </If>
-                                            </Sequence>
-                                          </TryCatch.Try>
-                                          <TryCatch.Catches>
-                                            <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_9">
-                                              <ActivityAction x:TypeArguments="s:Exception">
-                                                <ActivityAction.Argument>
-                                                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                                </ActivityAction.Argument>
-                                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,228" sap2010:WorkflowViewState.IdRef="Sequence_65">
-                                                  <sap:WorkflowViewStateService.ViewState>
-                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    </scg:Dictionary>
-                                                  </sap:WorkflowViewStateService.ViewState>
-                                                  <ui:LogMessage DisplayName="Log Message : Throw Error" sap:VirtualizedContainerService.HintSize="452,168" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Error" Message="[&quot;Unexpect error appear as message: &quot; + exception.Message]" />
-                                                </Sequence>
-                                              </ActivityAction>
-                                            </Catch>
-                                          </TryCatch.Catches>
-                                          <TryCatch.Finally>
-                                            <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="486,90" sap2010:WorkflowViewState.IdRef="Sequence_66">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                            </Sequence>
-                                          </TryCatch.Finally>
-                                        </TryCatch>
-                                        <If Condition="[str_RateRatio &lt;&gt; &quot;1&quot;]" DisplayName="If : Ratio is not 1 then divide rate data" sap:VirtualizedContainerService.HintSize="586,1267" sap2010:WorkflowViewState.IdRef="If_6">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                          <If.Then>
-                                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="584,1038" sap2010:WorkflowViewState.IdRef="Sequence_68">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_ExtractDataTable]" DisplayName="For Each Row in Data Table : Extract Table" sap:VirtualizedContainerService.HintSize="550,978" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-                                                <ui:ForEachRow.Body>
-                                                  <ActivityAction x:TypeArguments="sd:DataRow">
-                                                    <ActivityAction.Argument>
-                                                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
-                                                    </ActivityAction.Argument>
-                                                    <Sequence DisplayName="Divide Ratio to Rate" sap:VirtualizedContainerService.HintSize="548,805" sap2010:WorkflowViewState.IdRef="Sequence_70">
-                                                      <sap:WorkflowViewStateService.ViewState>
-                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                        </scg:Dictionary>
-                                                      </sap:WorkflowViewStateService.ViewState>
-                                                      <TryCatch DisplayName="Try Catch : Prevent exception when divided data" sap:VirtualizedContainerService.HintSize="514,745" sap2010:WorkflowViewState.IdRef="TryCatch_9">
-                                                        <sap:WorkflowViewStateService.ViewState>
-                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                          </scg:Dictionary>
-                                                        </sap:WorkflowViewStateService.ViewState>
-                                                        <TryCatch.Try>
-                                                          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="512,262" sap2010:WorkflowViewState.IdRef="Sequence_74">
-                                                            <sap:WorkflowViewStateService.ViewState>
-                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                              </scg:Dictionary>
-                                                            </sap:WorkflowViewStateService.ViewState>
-                                                            <ui:MultipleAssign DisplayName="Multiple Assign : Divided data" sap:VirtualizedContainerService.HintSize="478,202" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-                                                              <ui:MultipleAssign.AssignOperations>
-                                                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-                                                                    <ui:AssignOperation.To>
-                                                                      <OutArgument x:TypeArguments="x:Object">[CurrentRow(1)]</OutArgument>
-                                                                    </ui:AssignOperation.To>
-                                                                    <ui:AssignOperation.Value>
-                                                                      <InArgument x:TypeArguments="x:Object">[(CDbl(CurrentRow(1)) / CInt(str_RateRatio)).ToString]</InArgument>
-                                                                    </ui:AssignOperation.Value>
-                                                                  </ui:AssignOperation>
-                                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                                                                    <ui:AssignOperation.To>
-                                                                      <OutArgument x:TypeArguments="x:Object">[CurrentRow(2)]</OutArgument>
-                                                                    </ui:AssignOperation.To>
-                                                                    <ui:AssignOperation.Value>
-                                                                      <InArgument x:TypeArguments="x:Object">[(CDbl(CurrentRow(2)) / CInt(str_RateRatio)).ToString]</InArgument>
-                                                                    </ui:AssignOperation.Value>
-                                                                  </ui:AssignOperation>
-                                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                                                                    <ui:AssignOperation.To>
-                                                                      <OutArgument x:TypeArguments="x:Object">[CurrentRow(3)]</OutArgument>
-                                                                    </ui:AssignOperation.To>
-                                                                    <ui:AssignOperation.Value>
-                                                                      <InArgument x:TypeArguments="x:Object">[(CDbl(CurrentRow(3)) / CInt(str_RateRatio)).ToString]</InArgument>
-                                                                    </ui:AssignOperation.Value>
-                                                                  </ui:AssignOperation>
-                                                                </scg:List>
-                                                              </ui:MultipleAssign.AssignOperations>
-                                                            </ui:MultipleAssign>
-                                                          </Sequence>
-                                                        </TryCatch.Try>
-                                                        <TryCatch.Catches>
-                                                          <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_11">
-                                                            <ActivityAction x:TypeArguments="s:Exception">
-                                                              <ActivityAction.Argument>
-                                                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                                              </ActivityAction.Argument>
-                                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,228" sap2010:WorkflowViewState.IdRef="Sequence_75">
-                                                                <sap:WorkflowViewStateService.ViewState>
-                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                  </scg:Dictionary>
-                                                                </sap:WorkflowViewStateService.ViewState>
-                                                                <ui:LogMessage DisplayName="Log Message : Divided data wrong" sap:VirtualizedContainerService.HintSize="478,168" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Warn" Message="[&quot;Unexpected error appear as message: &quot; + exception.Message]" />
-                                                              </Sequence>
-                                                            </ActivityAction>
-                                                          </Catch>
-                                                        </TryCatch.Catches>
-                                                        <TryCatch.Finally>
-                                                          <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="512,89.6" sap2010:WorkflowViewState.IdRef="Sequence_76">
-                                                            <sap:WorkflowViewStateService.ViewState>
-                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                              </scg:Dictionary>
-                                                            </sap:WorkflowViewStateService.ViewState>
-                                                          </Sequence>
-                                                        </TryCatch.Finally>
-                                                      </TryCatch>
-                                                    </Sequence>
-                                                  </ActivityAction>
-                                                </ui:ForEachRow.Body>
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                              </ui:ForEachRow>
-                                            </Sequence>
-                                          </If.Then>
-                                          <If.Else>
-                                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="582.4,89.6" sap2010:WorkflowViewState.IdRef="Sequence_69">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                            </Sequence>
-                                          </If.Else>
-                                        </If>
-                                        <Assign DisplayName="Store Data into Dictionary" sap:VirtualizedContainerService.HintSize="584,104.8" sap2010:WorkflowViewState.IdRef="Assign_11">
-                                          <Assign.To>
-                                            <OutArgument x:TypeArguments="x:Object">[Config("DT_" + Curr)]</OutArgument>
-                                          </Assign.To>
-                                          <Assign.Value>
-                                            <InArgument x:TypeArguments="x:Object">[dt_ExtractDataTable]</InArgument>
-                                          </Assign.Value>
-                                        </Assign>
-                                      </Sequence>
-                                    </ActivityAction>
-                                  </ui:ForEach.Body>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:ForEach>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProcessCurrency - Invoke Workflow File (SubProcess\ProcessCurrency.xaml)" sap:VirtualizedContainerService.HintSize="954,257" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="SubProcess\ProcessCurrency.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_ExtractDataTable">[dt_ExtractDataTable]</InOutArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
                               </Sequence>
                             </ActivityAction>
                           </uix:NApplicationCard.Body>
@@ -1061,15 +684,15 @@ DateTime.ParseExact(Config("Period").ToString,"MMM-yyyy",System.Globalization.Cu
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Handle Error" sap:VirtualizedContainerService.HintSize="518,668" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                            <Sequence DisplayName="Handle Error" sap:VirtualizedContainerService.HintSize="1022,668" sap2010:WorkflowViewState.IdRef="Sequence_39">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uix:NTakeScreenshot DisplayName="Take Screenshot : Capture Error" FileName="[Path.Combine(Config(&quot;ExceptionFolder&quot;).ToString,&quot;screenshot.png&quot;)]" FileNameMode="DateTime" sap:VirtualizedContainerService.HintSize="484,267" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_2" Version="V4" />
-                              <ui:LogMessage DisplayName="Log Message : Error from Get Exchange rate" sap:VirtualizedContainerService.HintSize="484,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Warn" Message="[exception]" />
-                              <Assign DisplayName="Assign : exec_SystemException : Exchange Rate website" sap:VirtualizedContainerService.HintSize="484,166" sap2010:WorkflowViewState.IdRef="Assign_12">
+                              <uix:NTakeScreenshot DisplayName="Take Screenshot : Capture Error" FileName="[Path.Combine(Config(&quot;ExceptionFolder&quot;).ToString,&quot;screenshot.png&quot;)]" FileNameMode="DateTime" sap:VirtualizedContainerService.HintSize="988,267" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_2" Version="V4" />
+                              <ui:LogMessage DisplayName="Log Message : Error from Get Exchange rate" sap:VirtualizedContainerService.HintSize="988,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Warn" Message="[exception]" />
+                              <Assign DisplayName="Assign : exec_SystemException : Exchange Rate website" sap:VirtualizedContainerService.HintSize="988,166" sap2010:WorkflowViewState.IdRef="Assign_12">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="s:Exception">[SystemException]</OutArgument>
                                 </Assign.To>
@@ -1082,7 +705,7 @@ DateTime.ParseExact(Config("Period").ToString,"MMM-yyyy",System.Globalization.Cu
                         </Catch>
                       </TryCatch.Catches>
                       <TryCatch.Finally>
-                        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="518,90" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="1022,90" sap2010:WorkflowViewState.IdRef="Sequence_58">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1100,7 +723,7 @@ DateTime.ParseExact(Config("Period").ToString,"MMM-yyyy",System.Globalization.Cu
                           <av:Point x:Key="ShapeLocation">610,600</av:Point>
                           <av:Size x:Key="ShapeSize">60,60</av:Size>
                           <av:PointCollection x:Key="TrueConnector">640,660 640,705</av:PointCollection>
-                          <av:PointCollection x:Key="FalseConnector">670,630 700,630 700,860 695,860</av:PointCollection>
+                          <av:PointCollection x:Key="FalseConnector">670,630 754,630 754,860 695,860</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <FlowDecision.True>
@@ -1112,7 +735,7 @@ DateTime.ParseExact(Config("Period").ToString,"MMM-yyyy",System.Globalization.Cu
                               <av:PointCollection x:Key="ConnectorLocation">640,775 640,825</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence DisplayName="Write Data to Excel" sap:VirtualizedContainerService.HintSize="590,2487" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                          <Sequence DisplayName="Write Data to Excel" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_48">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="sd:DataTable" Name="dt_FormattedExchRate" />
                               <Variable x:TypeArguments="sd:DataTable" Name="dt_Result" />
@@ -1321,7 +944,7 @@ Select dt_Result.Rows.Add(
                                   <av:Size x:Key="ShapeSize">110,70</av:Size>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence DisplayName="End Process" sap:VirtualizedContainerService.HintSize="486,553" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                              <Sequence DisplayName="End Process" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_54">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
