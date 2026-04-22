@@ -1,8 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SendMail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SendMail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property sap2010:Annotation.AnnotationText="Exception variable that is used during transitions between states and represents a situation that does not conform to the rules of the process being automated." Name="in_BusinessException" Type="InArgument(ui:BusinessRuleException)" />
     <x:Property sap2010:Annotation.AnnotationText="Used during transitions between states to represent exceptions other than business exceptions." Name="in_SystemException" Type="InArgument(s:Exception)" />
   </x:Members>
   <VisualBasic.Settings>
@@ -139,20 +137,35 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Send email" sap:VirtualizedContainerService.HintSize="1173,3252" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Send email" sap:VirtualizedContainerService.HintSize="1173,3602" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="mailSubject" />
       <Variable x:TypeArguments="x:String" Name="mailTo" />
       <Variable x:TypeArguments="x:String" Name="mailCC" />
       <Variable x:TypeArguments="x:String" Name="mailBody" />
       <Variable x:TypeArguments="s:String[]" Default="[New String() {}]" Name="mailAttachment" />
+      <Variable x:TypeArguments="x:String" Name="email" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[in_SystemException is Nothing AndAlso in_Config isnot Nothing]" DisplayName="If : Process success with no error" sap:VirtualizedContainerService.HintSize="452,2042" sap2010:WorkflowViewState.IdRef="If_1">
+    <Assign DisplayName="Assign : Email used" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_21">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[email]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_Config("Email_used").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[in_SystemException is Nothing AndAlso in_Config isnot Nothing]" DisplayName="If : Process success with no error" sap:VirtualizedContainerService.HintSize="452,2217" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
         <Sequence DisplayName="Then  : Success Information" sap:VirtualizedContainerService.HintSize="450,1039" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
@@ -198,13 +211,15 @@
               <OutArgument x:TypeArguments="x:String">[mailBody]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[mailBody.Replace("[Process]","Get Monthly Exchange Rate by Period Success, Please see attach file from this email.").Replace("[Robot-Head]","Success")]</InArgument>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">[mailBody.Replace("[Process]","Get Monthly Exchange Rate by Period Success, Please see attach file from this email.").
+Replace("[Robot-Head]","Success").
+Replace("[Email]", email)]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else : Error Information" sap:VirtualizedContainerService.HintSize="450,864" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Else : Error Information" sap:VirtualizedContainerService.HintSize="450,1039" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -236,12 +251,22 @@
               <InArgument x:TypeArguments="x:String">[in_Config("Email_CC").ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Set mailAttachment" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_19">
+          <Assign DisplayName="Set mailAttachment" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_19">
             <Assign.To>
               <OutArgument x:TypeArguments="s:String[]">[mailAttachment]</OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_Config("ExceptionFolder").ToString,"*.png").ToArray]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Modified Body with error" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_22">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[mailBody]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">[mailBody.Replace("[Process]","Get monthly exchange rate by period failed with reason " + in_SystemException.Message).
+Replace("[Robot-Head]","Failed").
+Replace("[Email]", email)]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
@@ -255,7 +280,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" AttachmentsCollection="[mailAttachment]" Body="[mailBody]" Cc="[mailCC]" DisplayName="Send Outlook Mail Message : Process completed" sap:VirtualizedContainerService.HintSize="450,148" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[mailSubject]" To="[mailTo]">
+        <ui:SendOutlookMail Bcc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="[email]" AttachmentsCollection="[mailAttachment]" Body="[mailBody]" Cc="[mailCC]" DisplayName="Send Outlook Mail Message : Process completed" sap:VirtualizedContainerService.HintSize="450,148" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[mailSubject]" To="[mailTo]">
           <ui:SendOutlookMail.Files>
             <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
           </ui:SendOutlookMail.Files>
@@ -275,7 +300,6 @@
             </ActivityAction.Argument>
             <Sequence DisplayName="No Outlook in Computer Handle" sap:VirtualizedContainerService.HintSize="450,626" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <Sequence.Variables>
-                <Variable x:TypeArguments="x:String" Name="email" />
                 <Variable x:TypeArguments="ss:SecureString" Name="mailPassword" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>

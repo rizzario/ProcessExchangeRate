@@ -3,7 +3,8 @@
    "Output_folder":"Output",
    "Result_filename":"Exchage_Rate.xlsx",
    "ExceptionFolder":"ExceptionScreenShots",
-   "Period":"Dec-2025",
+   "Date_Start":"01/12/2024",
+   "Date_End":"31/12/2024",
    "ShortDelay":5,
    "MediumDelay":30,
    "LongDelay":300,
@@ -14,6 +15,7 @@
    "Email_Success_Subject": "Process Exchange Rate Monthly Period Success",
    "Email_Fail_Body":"Email_Fail.txt",
    "Email_Fail_Subject": "Process Exchange Rate Monthly Period Failed",
-   "Email_To":"pop@oventure-group.com",
-   "Email_CC":"name.h@oventure-group.com; earthj@zipcode-site.com; Mild@zipcode-site.com"
+   "Email_To":"kitkitti@deltaww.com",
+   "Email_CC":"kitkitti@deltaww.com",
+   "Email_used":"kitkitti@deltaww.com"
 }
