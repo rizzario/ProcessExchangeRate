@@ -90,14 +90,14 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ClearFiles" sap:VirtualizedContainerService.HintSize="1190,660.6566666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ClearFiles" sap:VirtualizedContainerService.HintSize="1179,660.6566666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message : Clear file" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Clear file...&quot;]" />
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each : All Data in Process Folder" sap:VirtualizedContainerService.HintSize="452,286" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(in_Config(&quot;ExceptionFolder&quot;).ToString, &quot;*.png&quot;).&#xA;Concat(Directory.GetFiles(in_Config(&quot;Output_folder&quot;).ToString, &quot;*.xls*&quot;))]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each : All Data in Process Folder" sap:VirtualizedContainerService.HintSize="452,286" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(in_Config(&quot;ExceptionFolder&quot;).ToString, &quot;*.png&quot;).&#xD;&#xA;Concat(Directory.GetFiles(in_Config(&quot;Output_folder&quot;).ToString, &quot;*.xls*&quot;)).&#xD;&#xA;Concat(Directory.GetFiles(in_Config(&quot;Process_Path&quot;).ToString, &quot;*.csv&quot;))]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
