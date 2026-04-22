@@ -8,13 +8,12 @@
    "MediumDelay":30,
    "LongDelay":300,
    "ListCurrency":"USD,GBP,SGD,JPY,EUR",
-	"Process_Path":"ProcessFiles",
+   "Process_Path":"ProcessFiles",
    "Template_Email":"Template\\Email",
    "Email_Success_Body":"Email_Success.txt",
    "Email_Success_Subject": "Process Exchange Rate Monthly Period Success",
    "Email_Fail_Body":"Email_Fail.txt",
    "Email_Fail_Subject": "Process Exchange Rate Monthly Period Failed",
-   "Email_To":"kitkitti@deltaww.com",
-   "Email_CC":"kitkitti@deltaww.com",
-   "Test_Env":"Test"
+   "Email_To":"pop@oventure-group.com",
+   "Email_CC":"name.h@oventure-group.com; earthj@zipcode-site.com; Mild@zipcode-site.com"
 }
