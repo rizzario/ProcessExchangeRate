@@ -4,6 +4,14 @@
 # Prevent caching and local artifacts from being committed
 ################################################################################
 .local
+.objects/
+.project/
+.settings/
+.storage/
+.tmh/
+ExceptionScreenShots/
+Output/
+ProcessFiles/
 ################################################################################
 # End of UiPath Studio common ignores
 ################################################################################
