@@ -137,7 +137,7 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Send email" sap:VirtualizedContainerService.HintSize="1173,3602" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Send email" sap:VirtualizedContainerService.HintSize="1173,3777" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="mailSubject" />
       <Variable x:TypeArguments="x:String" Name="mailTo" />
@@ -151,6 +151,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message : Send email" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Send an email.&quot;]" />
     <Assign DisplayName="Assign : Email used" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_21">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[email]</OutArgument>

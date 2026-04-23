@@ -3,7 +3,7 @@
    "Output_folder":"Output",
    "Result_filename":"Exchage_Rate.xlsx",
    "ExceptionFolder":"ExceptionScreenShots",
-   "Date_Start":"1/12/24",
+   "Date_Start":"01/12/2024",
    "Date_End":"31/12/2024",
    "ShortDelay":5,
    "MediumDelay":30,

@@ -98,20 +98,20 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessCurrency" sap:VirtualizedContainerService.HintSize="1173,3505" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessCurrency" sap:VirtualizedContainerService.HintSize="1173,2974" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message : Process currency" sap:VirtualizedContainerService.HintSize="622,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Process by currency...&quot;]" />
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Currency Data" sap:VirtualizedContainerService.HintSize="622,3307" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_Config(&quot;ListCurrency&quot;).ToString.Split(&quot;,&quot;c)]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Currency Data" sap:VirtualizedContainerService.HintSize="622,2776" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_Config(&quot;ListCurrency&quot;).ToString.Split(&quot;,&quot;c)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="Curr" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Process to Extract Data by Currency" sap:VirtualizedContainerService.HintSize="620,3185" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Process to Extract Data by Currency" sap:VirtualizedContainerService.HintSize="620,2654" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strCurrency" />
               <Variable x:TypeArguments="x:String" Name="strTempText" />
@@ -130,15 +130,21 @@
                 <InArgument x:TypeArguments="x:String">[Curr]</InArgument>
               </Assign.Value>
             </Assign>
-            <TryCatch DisplayName="Try Catch : Match file by currency" sap:VirtualizedContainerService.HintSize="586,1519" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try Catch : Match file by currency" sap:VirtualizedContainerService.HintSize="586,988" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
               <TryCatch.Try>
-                <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="486,1029" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="486,498" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[Directory.GetFiles(in_Config(&quot;Process_Path&quot;).ToString, &quot;*&quot; + strCurrency + &quot;*.csv&quot;).Count &gt; 0]" DisplayName="If : Match file by currency" sap:VirtualizedContainerService.HintSize="452,969" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If Condition="[Directory.GetFiles(in_Config(&quot;Process_Path&quot;).ToString, &quot;*&quot; + strCurrency + &quot;*.csv&quot;).Count &gt; 0]" DisplayName="If : Match file by currency" sap:VirtualizedContainerService.HintSize="452,438" sap2010:WorkflowViewState.IdRef="If_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -146,10 +152,11 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,749" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:ReadTextFile File="{x:Null}" Content="[strTempText]" DisplayName="Read Text File : currency csv" FileName="[Directory.GetFiles(in_Config(&quot;Process_Path&quot;).ToString, &quot;*&quot; + strCurrency + &quot;*.csv&quot;).First]" sap:VirtualizedContainerService.HintSize="416,113" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
@@ -182,12 +189,14 @@
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,283" sap2010:WorkflowViewState.IdRef="Sequence_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message : Catch some error and log into system - currency mismatch or not found" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[&quot;Cannot find file that match with currency &quot; + strCurrency]" />
+                        <ui:Continue DisplayName="Continue : Skip file no need to write" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="Continue_1" />
                       </Sequence>
                     </If.Else>
                   </If>
